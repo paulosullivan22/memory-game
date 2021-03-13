@@ -35,7 +35,7 @@ function setTiles(randomOrderArray) {
     }
 
     // POS - Note that in most cases, as `randomOrderArray` is an array, we would not use a `for` loop but a `forEach` loop here, which is 
-    // a type of loop you can use on arrays, but I don't you have covered this yet - you will in the future
+    // a type of loop you can use on arrays, but I don't think you have covered this yet - you will in the future
     for (let i = 0; i < randomOrderArray.length; i++) {
         if (i < 8) {
             setIconProps(randomOrderArray[i] - 1, i)
