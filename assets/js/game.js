@@ -2,18 +2,16 @@
 // and is supported by tileActions.js, timers.js and colorUtils.js
 
 
-
-
-
-// POS - global variables
+// POS - global variables. Generally it is best to limit use of global variables as it can be easy to overwrite them and it eats up a bit more
+// memory, see below link if interested, but we do need them in some cases (such as here):
+// https://stackoverflow.com/questions/31616608/global-variable-and-local-variable-memory-consumption-javascript#:~:text=1%20Answer&text=In%20JavaScript%2C%20variables%20are%20kept,re%20always%20kept%20in%20memory.
 let clicks = 0;
 const tiles = document.querySelectorAll(".gametile");
 let tileIcon;
 let tileIcons = [];
 let tileIds = [];
 // POS - I'm not entirely clear on what variable `n` is, I think it's number of clicks. It's best to avoid using single letter
-// variable names as it's not clear to other developers when working on shared projects. Also each variable should have a single
-// purpose
+// variable names as it's not clear to other developers when working on shared projects. Also each variable should have a single purpose
 let n = 0;
 let correctMatches = 0;
 
@@ -113,3 +111,14 @@ function calculateScore() {
     document.querySelector("#score").firstChild.innerHTML = calculatedScore;
     document.querySelector("#score").firstChild.style.color = "green";
 }
+
+
+
+
+// POS - there is a lot of `document.getElementById...` in this file and others, so if you wanted, you could abstract that
+// out to a helper function such as below. This is more a matter of style, but in some cases you may want to do it, if you
+// think it might be more readable
+//
+// function setText(element, text) {
+//     document.getElementById(element).firstChild.innerHTML = text
+// }
